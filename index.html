@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Koff</title>
+  <script type="module" src="/main.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header__container">
+      <a class="header__link-logo" href="/">
+        <img class="header__logo" src="/img/logo.svg" alt="Логотип мебельного маркета Koff">
+      </a>
+
+      <form action="/api/product" class="header__search">
+        <input class="header__search" type="search" name="search" placeholder="Введите запрос">
+
+        <button class="header__btn" type="submit">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M7.66634 14C11.1641 14 13.9997 11.1645 13.9997 7.66671C13.9997 4.1689 11.1641 1.33337 7.66634 1.33337C4.16854 1.33337 1.33301 4.1689 1.33301 7.66671C1.33301 11.1645 4.16854 14 7.66634 14Z"
+              stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M14.6663 14.6667L13.333 13.3334" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+
+      </form>
+
+      <div class="header__control">
+        <a href="/favorite" class="header__link">
+          <span class="header__link-text">Избранное</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z"
+              stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+
+        <a href="/cart" class="header__link">
+          <span class="header__link-text">Корзина</span>
+          <span class="header__count">(5)</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M5.87329 1.33337L3.45996 3.75337" stroke="#1C1C1C" stroke-miterlimit="10" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path d="M10.127 1.33337L12.5403 3.75337" stroke="#1C1C1C" stroke-miterlimit="10" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path
+              d="M1.33301 5.23336C1.33301 4.00002 1.99301 3.90002 2.81301 3.90002H13.1863C14.0063 3.90002 14.6663 4.00002 14.6663 5.23336C14.6663 6.66669 14.0063 6.56669 13.1863 6.56669H2.81301C1.99301 6.56669 1.33301 6.66669 1.33301 5.23336Z"
+              stroke="#1C1C1C" />
+            <path d="M6.50684 9.33337V11.7" stroke="#1C1C1C" stroke-linecap="round" />
+            <path d="M9.57324 9.33337V11.7" stroke="#1C1C1C" stroke-linecap="round" />
+            <path
+              d="M2.33301 6.66663L3.27301 12.4266C3.48634 13.72 3.99967 14.6666 5.90634 14.6666H9.92634C11.9997 14.6666 12.3063 13.76 12.5463 12.5066L13.6663 6.66663"
+              stroke="#1C1C1C" stroke-linecap="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="catalog">
+      <div class="container catalog__container">
+        <ul class="catalog__list">
+          <li class="cataloge__item">
+            <a href="/category?slug=Диваны" class="catalog__link">Диваны</a>
+          </li>
+          <li class="cataloge__item">
+            <a href="/category?slug=Шкафы" class="catalog__link">Шкафы</a>
+          </li>
+          <li class="cataloge__item">
+            <a href="/category?slug=Стулья" class="catalog__link">Стулья</a>
+          </li>
+          <li class="cataloge__item">
+            <a href="/category?slug=Тумбы" class="catalog__link">Тумбы</a>
+          </li>
+          <li class="cataloge__item">
+            <a href="/category?slug=Кровати" class="catalog__link">Кровати</a>
+          </li>
+          <li class="cataloge__item">
+            <a href="/category?slug=Столы" class="catalog__link">Столы</a>
+          </li>
+          <li class="cataloge__item">
+            <a href="/category?slug=Комоды" class="catalog__link">Комоды</a>
+          </li>
+          <li class="cataloge__item">
+            <a href="/category?slug=Матрасы" class="catalog__link">Матрасы</a>
+          </li>
+          <li class="cataloge__item">
+            <a href="/category?slug=Пуфики" class="catalog__link">Пуфики</a>
+          </li>
+          <li class="cataloge__item">
+            <a href="/category?slug=Стеллажи" class="catalog__link">Стеллажи</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="breadcrumbs">
+      <div class="container">
+        <ul class="breadcrumbs__list">
+          <li class="breadcrumbs__item">
+            <a href="/" class="breadcrumbs__link">Главная</a>
+            <span class="breadcrumbs__separator">&gt;</span>
+          </li>
+          <li class="breadcrumbs__item">
+            <a href="/category?/slag=Кресла" class="breadcrumbs__link">Кресла</a>
+            <span class="breadcrumbs__separator">&gt;</span>
+          </li>
+          <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link">Кресло с подлокотниками</a>
+            <span class="breadcrumbs__separator">&gt;</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="goods" hidden>
+
+      <h2 class="goods__title">Избранное</h2>
+
+      <ul class="goods__list">
+
+        <li class="goods__item">
+          <article class="goods__card card">
+            <a href="/product" class="card__link">
+              <img src="/img/photo.jpg" alt="Кресло с подлокотниками" class="card__img">
+            </a>
+            <h3 class="card__title">
+              <a href="/product" class="card__link">Кресло с подлокотниками</a>
+            </h3>
+            <p class="card__price">5&nbsp;000&nbsp;₽</p>
+            <button class="card__btn" type="button">В&nbsp;корзину</button>
+            <button class="card__favorite" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z"
+                  fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </article>
+        </li>
+
+        <li class="goods__item">
+          <article class="goods__card card">
+            <a href="/product" class="card__link">
+              <img src="/img/photo.jpg" alt="Кресло с подлокотниками" class="card__img">
+            </a>
+            <h3 class="card__title">
+              <a href="/product" class="card__link">Кресло с подлокотниками</a>
+            </h3>
+            <p class="card__price" type="button">5&nbsp;000&nbsp;₽</p>
+            <button class="card__btn" type="button">В&nbsp;корзину</button>
+            <button class="card__favorite">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z"
+                  fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </article>
+        </li>
+
+        <li class="goods__item">
+          <article class="goods__card card">
+            <a href="/product" class="card__link">
+              <img src="/img/photo.jpg" alt="Кресло с подлокотниками" class="card__img">
+            </a>
+            <h3 class="card__title">
+              <a href="/product" class="card__link">Кресло с подлокотниками</a>
+            </h3>
+            <p class="card__price" type="button">5&nbsp;000&nbsp;₽</p>
+            <button class="card__btn" type="button">В&nbsp;корзину</button>
+            <button class="card__favorite">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z"
+                  fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </article>
+        </li>
+
+        <li class="goods__item">
+          <article class="goods__card card">
+            <a href="/product" class="card__link">
+              <img src="/img/photo.jpg" alt="Кресло с подлокотниками" class="card__img">
+            </a>
+            <h3 class="card__title">
+              <a href="/product" class="card__link">Кресло с подлокотниками</a>
+            </h3>
+            <p class="card__price">5&nbsp;000&nbsp;₽</p>
+            <button class="card__btn" type="button">В&nbsp;корзину</button>
+            <button class="card__favorite" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z"
+                  fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </article>
+        </li>
+
+      </ul>
+
+    </section>
+
+    <section class="product" hidden>
+      <div class="container product__container">
+        <h2 class="product__title">Кресло с подлокотниками</h2>
+
+        <div class="product__picture">
+          <div class="swiper product__slider-main">
+            <div class="swiper-wrapper product__main-list">
+              <div class="swiper-slide product__slide">
+                <img src="/img/photo.jpg">
+              </div>
+              <div class="swiper-slide product__slide">
+                <img src="https://swiperjs.com/demos/images/nature-1.jpg">
+              </div>
+              <div class="swiper-slide product__slide">
+                <img src="https://swiperjs.com/demos/images/nature-2.jpg">
+              </div>
+              <div class="swiper-slide product__slide">
+                <img src="https://swiperjs.com/demos/images/nature-3.jpg">
+              </div>
+              <div class="swiper-slide product__slide">
+                <img src="https://swiperjs.com/demos/images/nature-4.jpg">
+              </div>
+              <div class="swiper-slide product__slide">
+                <img src="https://swiperjs.com/demos/images/nature-5.jpg">
+              </div>
+              <div class="swiper-slide product__slide">
+                <img src="https://swiperjs.com/demos/images/nature-6.jpg">
+              </div>
+              <div class="swiper-slide product__slide">
+                <img src="https://swiperjs.com/demos/images/nature-7.jpg">
+              </div>
+              <div class="swiper-slide product__slide">
+                <img src="https://swiperjs.com/demos/images/nature-8.jpg">
+              </div>
+              <div class="swiper-slide product__slide">
+                <img src="https://swiperjs.com/demos/images/nature-10.jpg">
+              </div>
+            </div>
+            <button class="product__arrow product__arrow_next" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <rect width="32" height="32" rx="16" transform="matrix(-1 0 0 1 32 0)" fill="white"
+                  fill-opacity="0.4" />
+                <path
+                  d="M20.136 16.0001L14.4747 10.1821C14.4281 10.1352 14.3913 10.0796 14.3663 10.0183C14.3413 9.95711 14.3288 9.89155 14.3293 9.82544C14.3299 9.75933 14.3435 9.69398 14.3695 9.63318C14.3955 9.57239 14.4332 9.51734 14.4806 9.47124C14.528 9.42513 14.5841 9.38888 14.6455 9.36458C14.707 9.34028 14.7727 9.32842 14.8388 9.32968C14.9049 9.33094 14.9701 9.34529 15.0306 9.37191C15.0912 9.39854 15.1458 9.43689 15.1914 9.48477L21.1914 15.6514C21.2822 15.7448 21.333 15.8699 21.333 16.0001C21.333 16.1303 21.2822 16.2554 21.1914 16.3488L15.1914 22.5154C15.1458 22.5633 15.0912 22.6017 15.0306 22.6283C14.9701 22.6549 14.9049 22.6693 14.8388 22.6705C14.7727 22.6718 14.707 22.6599 14.6455 22.6356C14.5841 22.6113 14.528 22.5751 14.4806 22.529C14.4332 22.4829 14.3955 22.4278 14.3695 22.367C14.3435 22.3062 14.3299 22.2409 14.3293 22.1748C14.3288 22.1087 14.3413 22.0431 14.3663 21.9819C14.3913 21.9207 14.4281 21.865 14.4747 21.8181L20.136 16.0001Z"
+                  fill="#1C1C1C" />
+              </svg>
+            </button>
+            <button class="product__arrow product__arrow_prev" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <rect width="32" height="32" rx="16" fill="white" fill-opacity="0.4" />
+                <path
+                  d="M11.864 16.0001L17.5253 10.1821C17.5719 10.1352 17.6087 10.0796 17.6337 10.0183C17.6587 9.95711 17.6712 9.89155 17.6707 9.82544C17.6701 9.75933 17.6565 9.69398 17.6305 9.63318C17.6045 9.57239 17.5668 9.51734 17.5194 9.47124C17.472 9.42513 17.4159 9.38888 17.3545 9.36458C17.293 9.34028 17.2273 9.32842 17.1612 9.32968C17.0951 9.33094 17.0299 9.34529 16.9694 9.37191C16.9088 9.39854 16.8542 9.43689 16.8086 9.48477L10.8086 15.6514C10.7178 15.7448 10.667 15.8699 10.667 16.0001C10.667 16.1303 10.7178 16.2554 10.8086 16.3488L16.8086 22.5154C16.8542 22.5633 16.9088 22.6017 16.9694 22.6283C17.0299 22.6549 17.0951 22.6693 17.1612 22.6705C17.2273 22.6718 17.293 22.6599 17.3545 22.6356C17.4159 22.6113 17.472 22.5751 17.5194 22.529C17.5668 22.4829 17.6045 22.4278 17.6305 22.367C17.6565 22.3062 17.6701 22.2409 17.6707 22.1748C17.6712 22.1087 17.6587 22.0431 17.6337 21.9819C17.6087 21.9207 17.5719 21.865 17.5253 21.8181L11.864 16.0001Z"
+                  fill="#1C1C1C" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="swiper product__slider-thumbnails">
+            <div class="swiper-wrapper product__thumbnails-list">
+              <div class="swiper-slide product__thumbnails-slide">
+                <img class="product__thumbnails-img" src="/img/photo.jpg">
+              </div>
+              <div class="swiper-slide product__thumbnails-slide">
+                <img class="product__thumbnails-img" src="https://swiperjs.com/demos/images/nature-1.jpg">
+              </div>
+              <div class="swiper-slide product__thumbnails-slide">
+                <img class="product__thumbnails-img" src="https://swiperjs.com/demos/images/nature-2.jpg">
+              </div>
+              <div class="swiper-slide product__thumbnails-slide">
+                <img class="product__thumbnails-img" src="https://swiperjs.com/demos/images/nature-3.jpg">
+              </div>
+              <div class="swiper-slide product__thumbnails-slide">
+                <img class="product__thumbnails-img" src="https://swiperjs.com/demos/images/nature-4.jpg">
+              </div>
+              <div class="swiper-slide product__thumbnails-slide">
+                <img class="product__thumbnails-img" src="https://swiperjs.com/demos/images/nature-5.jpg">
+              </div>
+              <div class="swiper-slide product__thumbnails-slide">
+                <img class="product__thumbnails-img" src="https://swiperjs.com/demos/images/nature-6.jpg">
+              </div>
+              <div class="swiper-slide product__thumbnails-slide">
+                <img class="product__thumbnails-img" src="https://swiperjs.com/demos/images/nature-7.jpg">
+              </div>
+              <div class="swiper-slide product__thumbnails-slide">
+                <img class="product__thumbnails-img" src="https://swiperjs.com/demos/images/nature-8.jpg">
+              </div>
+              <div class="swiper-slide product__thumbnails-slide">
+                <img class="product__thumbnails-img" src="https://swiperjs.com/demos/images/nature-10.jpg">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product__info">
+          <p class="product__price">5&nbsp;000&nbsp;₽</p>
+          <p class="product__article">арт. 84348945757</p>
+
+          <div class="product__characteristics">
+            <h3 class="product__characteristics-title">Общие характеристики</h3>
+            <table class="product__characteristics-table table">
+              <tr class="table__row">
+                <td class="table__field">Коллекция</td>
+                <td class="table__value">Мирсаж</td>
+              </tr>
+              <tr class="table__row">
+                <td class="table__field">Производитель</td>
+                <td class="table__value">Россия</td>
+              </tr>
+              <tr class="table__row">
+                <td class="table__field">Гарантия</td>
+                <td class="table__value">18 мес.</td>
+              </tr>
+              <tr class="table__row">
+                <td class="table__field">Срок службы</td>
+                <td class="table__value">5 лет</td>
+              </tr>
+              <tr class="table__row">
+                <td class="table__field">Цвет</td>
+                <td class="table__value">Желтый</td>
+              </tr>
+              <tr class="table__row">
+                <td class="table__field">Макс. нагрузка</td>
+                <td class="table__value">130 кг</td>
+              </tr>
+            </table>
+
+            <div class="product__btns">
+              <button class="product__btn" type="button">В корзину</button>
+              <button class="product__like" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M8.41333 13.8733C8.18666 13.9533 7.81333 13.9533 7.58666 13.8733C5.65333 13.2133 1.33333 10.46 1.33333 5.79332C1.33333 3.73332 2.99333 2.06665 5.03999 2.06665C6.25333 2.06665 7.32666 2.65332 7.99999 3.55998C8.67333 2.65332 9.75333 2.06665 10.96 2.06665C13.0067 2.06665 14.6667 3.73332 14.6667 5.79332C14.6667 10.46 10.3467 13.2133 8.41333 13.8733Z"
+                    fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="cart">
+      <div class="container cart__container">
+        <h2 class="cart__title">Корзина</h2>
+
+        <ul class="cart__products">
+
+          <li class="cart__product">
+            <img src="/img/photos.jpg" alt="" class="cart__img">
+            <h3 class="cart__title-product">Кресло с подлокотниками</h3>
+            <p class="cart__price">10&nbsp;000&nbsp;₽</p>
+            <p class="cart__article">арт. 84348945757</p>
+            <div class="cart__product-control">
+              <button class="cart__product-btn" type="button">-</button>
+              <p class="cart__product-count">2</p>
+              <button class="cart__product-btn" type="button">+</button>
+            </div>
+          </li>
+
+          <li class="cart__product">
+            <img src="/img/photos.jpg" alt="" class="cart__img">
+            <h3 class="cart__title-product">Кресло с подлокотниками</h3>
+            <p class="cart__price">5&nbsp;000&nbsp;₽</p>
+            <p class="cart__article">арт. 84348945757</p>
+            <div class="cart__product-control">
+              <button class="cart__product-btn" type="button">-</button>
+              <p class="cart__product-count">1</p>
+              <button class="cart__product-btn" type="button">+</button>
+            </div>
+          </li>
+
+          <li class="cart__product">
+            <img src="/img/photos.jpg" alt="" class="cart__img">
+            <h3 class="cart__title-product">Кресло с подлокотниками</h3>
+            <p class="cart__price">5&nbsp;000&nbsp;₽</p>
+            <p class="cart__article">арт. 84348945757</p>
+            <div class="cart__product-control">
+              <button class="cart__product-btn" type="button">-</button>
+              <p class="cart__product-count">1</p>
+              <button class="cart__product-btn" type="button">+</button>
+            </div>
+          </li>
+
+        </ul>
+
+        <div class="cart__place">
+          <h3 class="cart__subtitle">Оформление</h3>
+
+          <div class="cart__place-info">
+            <p class="cart__place-count">4 товара на сумму:</p>
+            <p class="cart__place-price">20&nbsp;000&nbsp;₽</p>
+          </div>
+
+          <p class="cart__place-delivery">Доставка 0 ₽</p>
+
+          <button class="cart__place-btn" type="submit" form="order"></button>
+        </div>
+
+        <form class="cart__form form__order" id="form" action="#" method="POST">
+          <h3 class="cart__subtitle">Данные для доставки</h3>
+
+          <fieldset class="form-order__fieldset form-order__fieldset_input">
+            <input class="form-order__input" type="text" name="name" placeholder="Фамилия Имя Отчество">
+            <input class="form-order__input" type="tel" name="phone" placeholder="Телефон">
+            <input class="form-order__input" type="email" name="email" placeholder="E-mail">
+            <input class="form-order__input" type="text" name="address" placeholder="Адрес доставки">
+            <textarea class="form-order__textarea" name="comment" placeholder="Комментарий к заказу"></textarea>
+          </fieldset>
+
+          <fieldset class="form-order__fieldset form-order__fieldset_radio">
+            <legend class="form-order__legend">Доставка</legend>
+            <label class="form-order__label radio">
+              <input class="radio__input" type="radio" name="deliveryType" id="delivery">Доставка
+            </label>
+            <label class="form-order__label radio">
+              <input class="radio__input" type="radio" name="deliveryType" id="pickup">Самовывоз
+            </label>
+          </fieldset>
+
+          <fieldset class="form-order__fieldset form-order__fieldset_radio">
+            <legend class="form-order__legend">Оплата</legend>
+            <label class="form-order__label radio">
+              <input class="radio__input" type="radio" name="paymentType" id="card">Картой при получении
+            </label>
+            <label class="form-order__label radio">
+              <input class="radio__input" type="radio" name="paymentType" id="cash">Наличными при получении
+            </label>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+
+    <section class="answer">
+      <div class="container answer__container">
+        <div class="answer__wrap">
+
+          <div class="answer__top">
+            <h2 class="answer__title">Заказ успешно размещен</h2>
+            <p class="answer__price">20&nbsp;000&nbsp;₽</p>
+            <p class="answer__order-number">№43435</p>
+          </div>
+
+          <div class="answer__data">
+            <h3 class="answer__subtitle">Данные доставки</h3>
+            <table class="answer__table">
+              <tr class="answer__row">
+                <td class="answer__field">Получатель</td>
+                <td class="answer__value">Иванов Петр Александрович</td>
+              </tr>
+              <tr class="answer__row">
+                <td class="answer__field">Телефон</td>
+                <td class="answer__value">+7 (737) 346 23 00</td>
+              </tr>
+              <tr class="answer__row">
+                <td class="answer__field">E-mail</td>
+                <td class="answer__value">Ivanov84@gmail.com</td>
+              </tr>
+              <tr class="answer__row">
+                <td class="answer__field">Адрес доставки</td>
+                <td class="answer__value">Москва, ул. Ленина, 21, кв. 33</td>
+              </tr>
+              <tr class="answer__row">
+                <td class="answer__field">Способ оплаты</td>
+                <td class="answer__value">Картой при получении</td>
+              </tr>
+              <tr class="answer__row">
+                <td class="answer__field">Способ получения</td>
+                <td class="answer__value">Доставка</td>
+              </tr>
+            </table>
+          </div>
+
+          <a class="answer__link" href="/">На главную</a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__container">
+      <a href="/" class="footer__link-logo">
+        <img class="footer__logo" src="/img/logo.svg" alt="Логотип мебельного маркета Koff">
+      </a>
+
+      <div class="footer__contacts contacts">
+        <a href="tel:+7 (939) 839 12 97" class="contacts__phone">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M4.48578 1.54458L5.59264 1.21086C5.95794 1.1009 6.35076 1.12758 6.69784 1.28592C7.04492 1.44427 7.32254 1.72347 7.47892 2.07143L8.25492 3.79715C8.38961 4.09653 8.42715 4.43058 8.36227 4.75239C8.2974 5.0742 8.13336 5.36761 7.89321 5.59143L6.71206 6.692C6.55378 6.84229 6.67378 7.428 7.25206 8.43029C7.83092 9.43315 8.27835 9.82972 8.48464 9.768L10.0321 9.29486C10.3457 9.19892 10.6816 9.20353 10.9925 9.30806C11.3034 9.41258 11.5738 9.61178 11.7658 9.87772L12.8686 11.4063C13.0914 11.715 13.1945 12.094 13.1589 12.473C13.1233 12.852 12.9513 13.2051 12.6749 13.4669L11.8223 14.2743C11.5471 14.5349 11.2077 14.7179 10.8387 14.8045C10.4696 14.8912 10.0842 14.8784 9.72178 14.7674C7.93549 14.2206 6.28121 12.5977 4.73664 9.92172C3.18864 7.24172 2.60406 4.98115 3.01149 3.13429C3.09367 2.76215 3.2736 2.41866 3.53275 2.13922C3.79189 1.85978 4.12088 1.65452 4.48578 1.54458Z"
+              fill="white" />
+          </svg>
+          <span>+7 (939) 839 12 97</span>
+        </a>
+
+        <ul class="contacts__list">
+          <li class="contacts__item">
+            <a href="#" class="contacts__link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M8.00031 0.320007C3.75871 0.320007 0.320312 3.75841 0.320312 8.00001C0.320312 12.2416 3.75871 15.68 8.00031 15.68C12.2419 15.68 15.6803 12.2416 15.6803 8.00001C15.6803 3.75841 12.2419 0.320007 8.00031 0.320007ZM10.9539 8.98481C10.9539 8.98481 11.6331 9.65521 11.8003 9.96641C11.8051 9.97281 11.8075 9.97921 11.8091 9.98241C11.8771 10.0968 11.8931 10.1856 11.8595 10.252C11.8035 10.3624 11.6115 10.4168 11.5459 10.4216H10.3459C10.2627 10.4216 10.0883 10.4 9.87711 10.2544C9.71471 10.1408 9.55471 9.95441 9.39871 9.77281C9.16591 9.50241 8.96431 9.26881 8.76111 9.26881C8.7353 9.26876 8.70965 9.27281 8.68511 9.28081C8.53151 9.33041 8.33471 9.54961 8.33471 10.1336C8.33471 10.316 8.19071 10.4208 8.08911 10.4208H7.53951C7.35231 10.4208 6.37711 10.3552 5.51311 9.44401C4.45551 8.32801 3.50351 6.08961 3.49551 6.06881C3.43551 5.92401 3.55951 5.84641 3.69471 5.84641H4.90671C5.06831 5.84641 5.12111 5.94481 5.15791 6.03201C5.20111 6.13361 5.35951 6.53761 5.61951 6.99201C6.04111 7.73281 6.29951 8.03361 6.50671 8.03361C6.54556 8.03315 6.58372 8.02327 6.61791 8.00481C6.88831 7.85441 6.83791 6.89041 6.82591 6.69041C6.82591 6.65281 6.82511 6.25921 6.68671 6.07041C6.58751 5.93361 6.41871 5.88161 6.31631 5.86241C6.35776 5.80522 6.41236 5.75884 6.47551 5.72721C6.66111 5.63441 6.99551 5.62081 7.32751 5.62081H7.51231C7.87231 5.62561 7.96511 5.64881 8.09551 5.68161C8.35951 5.74481 8.36511 5.91521 8.34191 6.49841C8.33471 6.66401 8.32751 6.85121 8.32751 7.07201C8.32751 7.12001 8.32511 7.17121 8.32511 7.22561C8.31711 7.52241 8.30751 7.85921 8.51711 7.99761C8.54445 8.01475 8.57604 8.0239 8.60831 8.02401C8.68111 8.02401 8.90031 8.02401 9.49391 7.00561C9.67698 6.67781 9.83606 6.33719 9.96991 5.98641C9.98191 5.96561 10.0171 5.90161 10.0587 5.87681C10.0894 5.86116 10.1235 5.85319 10.1579 5.85361H11.5827C11.7379 5.85361 11.8443 5.87681 11.8643 5.93681C11.8995 6.03201 11.8579 6.32241 11.2075 7.20321L10.9171 7.58641C10.3275 8.35921 10.3275 8.39841 10.9539 8.98481Z"
+                  fill="white" />
+              </svg>
+            </a>
+          </li>
+          <li class="contacts__item">
+            <a href="#" class="contacts__link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M6.66634 10L10.1263 8.00001L6.66634 6.00001V10ZM14.373 4.78001C14.4597 5.09334 14.5197 5.51334 14.5597 6.04668C14.6063 6.58001 14.6263 7.04001 14.6263 7.44001L14.6663 8.00001C14.6663 9.46001 14.5597 10.5333 14.373 11.22C14.2063 11.82 13.8197 12.2067 13.2197 12.3733C12.9063 12.46 12.333 12.52 11.453 12.56C10.5863 12.6067 9.79301 12.6267 9.05967 12.6267L7.99967 12.6667C5.20634 12.6667 3.46634 12.56 2.77967 12.3733C2.17967 12.2067 1.79301 11.82 1.62634 11.22C1.53967 10.9067 1.47967 10.4867 1.43967 9.95334C1.39301 9.42001 1.37301 8.96001 1.37301 8.56001L1.33301 8.00001C1.33301 6.54001 1.43967 5.46668 1.62634 4.78001C1.79301 4.18001 2.17967 3.79334 2.77967 3.62668C3.09301 3.54001 3.66634 3.48001 4.54634 3.44001C5.41301 3.39334 6.20634 3.37334 6.93967 3.37334L7.99967 3.33334C10.793 3.33334 12.533 3.44001 13.2197 3.62668C13.8197 3.79334 14.2063 4.18001 14.373 4.78001Z"
+                  fill="white" />
+              </svg>
+            </a>
+          </li>
+          <li class="contacts__item">
+            <a href="#" class="contacts__link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M16 8C16 10.1217 15.1571 12.1566 13.6569 13.6569C12.1566 15.1571 10.1217 16 8 16C5.87827 16 3.84344 15.1571 2.34315 13.6569C0.842855 12.1566 0 10.1217 0 8C0 5.87827 0.842855 3.84344 2.34315 2.34315C3.84344 0.842855 5.87827 0 8 0C10.1217 0 12.1566 0.842855 13.6569 2.34315C15.1571 3.84344 16 5.87827 16 8ZM8.287 5.906C7.509 6.23 5.953 6.9 3.621 7.916C3.243 8.066 3.044 8.214 3.026 8.358C2.996 8.601 3.301 8.697 3.716 8.828L3.891 8.883C4.299 9.016 4.849 9.171 5.134 9.177C5.394 9.183 5.683 9.077 6.002 8.857C8.181 7.386 9.306 6.643 9.376 6.627C9.426 6.615 9.496 6.601 9.542 6.643C9.589 6.684 9.584 6.763 9.579 6.784C9.549 6.913 8.352 8.025 7.733 8.601C7.54 8.781 7.403 8.908 7.375 8.937C7.31334 9.00001 7.25067 9.06202 7.187 9.123C6.807 9.489 6.523 9.763 7.202 10.211C7.529 10.427 7.791 10.604 8.052 10.782C8.336 10.976 8.62 11.169 8.988 11.411C9.081 11.471 9.171 11.536 9.258 11.598C9.589 11.834 9.888 12.046 10.255 12.012C10.469 11.992 10.69 11.792 10.802 11.192C11.067 9.775 11.588 6.706 11.708 5.441C11.7153 5.33584 11.711 5.2302 11.695 5.126C11.6856 5.04192 11.6449 4.96446 11.581 4.909C11.49 4.84619 11.3815 4.81365 11.271 4.816C10.971 4.821 10.508 4.982 8.287 5.906Z"
+                  fill="white" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+
+        <ul class="footer__developer-list">
+          <li class="footer__developer-item">
+            Designer:
+            <a href="https://t.me/Mrshmallowww" class="footer__developer-link">Anastasia Ilina</a>
+          </li>
+          <li class="footer__developer-item">
+            Developer:
+            <a href="#" class="footer__developer-link">Vitalii Smirnov</a>
+          </li>
+        </ul>
+
+        <p class="footer__copyright">© Koff, 2023</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
