@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="preload" href="/fonts/open-sans-v36-cyrillic_latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/open-sans-v36-cyrillic_latin-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-v13-cyrillic_latin-regular.woff2" as="font" type="font/woff2" crossorigin>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Koff</title>
   <script type="module" src="/main.js"></script>
@@ -17,14 +20,14 @@
       </a>
 
       <form action="/api/product" class="header__search">
-        <input class="header__search" type="search" name="search" placeholder="Введите запрос">
+        <input class="header__input" type="search" name="search" placeholder="Введите запрос">
 
         <button class="header__btn" type="submit">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M7.66634 14C11.1641 14 13.9997 11.1645 13.9997 7.66671C13.9997 4.1689 11.1641 1.33337 7.66634 1.33337C4.16854 1.33337 1.33301 4.1689 1.33301 7.66671C1.33301 11.1645 4.16854 14 7.66634 14Z"
-              stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M14.6663 14.6667L13.333 13.3334" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M14.6663 14.6667L13.333 13.3334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
         </button>
@@ -65,44 +68,44 @@
 
   <main>
 
-    <div class="catalog">
+    <div class="catalog" hidden>
       <div class="container catalog__container">
         <ul class="catalog__list">
-          <li class="cataloge__item">
+          <li class="catalog__item">
             <a href="/category?slug=Диваны" class="catalog__link">Диваны</a>
           </li>
-          <li class="cataloge__item">
+          <li class="catalog__item">
             <a href="/category?slug=Шкафы" class="catalog__link">Шкафы</a>
           </li>
-          <li class="cataloge__item">
+          <li class="catalog__item">
             <a href="/category?slug=Стулья" class="catalog__link">Стулья</a>
           </li>
-          <li class="cataloge__item">
+          <li class="catalog__item">
             <a href="/category?slug=Тумбы" class="catalog__link">Тумбы</a>
           </li>
-          <li class="cataloge__item">
+          <li class="catalog__item">
             <a href="/category?slug=Кровати" class="catalog__link">Кровати</a>
           </li>
-          <li class="cataloge__item">
+          <li class="catalog__item">
             <a href="/category?slug=Столы" class="catalog__link">Столы</a>
           </li>
-          <li class="cataloge__item">
+          <li class="catalog__item">
             <a href="/category?slug=Комоды" class="catalog__link">Комоды</a>
           </li>
-          <li class="cataloge__item">
+          <li class="catalog__item">
             <a href="/category?slug=Матрасы" class="catalog__link">Матрасы</a>
           </li>
-          <li class="cataloge__item">
+          <li class="catalog__item">
             <a href="/category?slug=Пуфики" class="catalog__link">Пуфики</a>
           </li>
-          <li class="cataloge__item">
+          <li class="catalog__item">
             <a href="/category?slug=Стеллажи" class="catalog__link">Стеллажи</a>
           </li>
         </ul>
       </div>
     </div>
 
-    <div class="breadcrumbs">
+    <div class="breadcrumbs" hidden>
       <div class="container">
         <ul class="breadcrumbs__list">
           <li class="breadcrumbs__item">
@@ -122,93 +125,109 @@
     </div>
 
     <section class="goods" hidden>
+      <div class="container">
+        <h2 class="goods__title">Избранное</h2>
 
-      <h2 class="goods__title">Избранное</h2>
+        <ul class="goods__list">
 
-      <ul class="goods__list">
+          <li class="goods__item">
+            <article class="goods__card card">
+              <a href="/product" class="card__link card__link_img">
+                <img src="/img/photo.jpg" alt="Кресло с подлокотниками" class="card__img">
+              </a>
 
-        <li class="goods__item">
-          <article class="goods__card card">
-            <a href="/product" class="card__link">
-              <img src="/img/photo.jpg" alt="Кресло с подлокотниками" class="card__img">
-            </a>
-            <h3 class="card__title">
-              <a href="/product" class="card__link">Кресло с подлокотниками</a>
-            </h3>
-            <p class="card__price">5&nbsp;000&nbsp;₽</p>
-            <button class="card__btn" type="button">В&nbsp;корзину</button>
-            <button class="card__favorite" type="button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path
-                  d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z"
-                  fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </button>
-          </article>
-        </li>
+              <div class="card__info">
+                <h3 class="card__title">
+                  <a href="/product" class="card__link">Кресло с подлокотниками</a>
+                </h3>
+                <p class="card__price">5&nbsp;000&nbsp;₽</p>
+              </div>
 
-        <li class="goods__item">
-          <article class="goods__card card">
-            <a href="/product" class="card__link">
-              <img src="/img/photo.jpg" alt="Кресло с подлокотниками" class="card__img">
-            </a>
-            <h3 class="card__title">
-              <a href="/product" class="card__link">Кресло с подлокотниками</a>
-            </h3>
-            <p class="card__price" type="button">5&nbsp;000&nbsp;₽</p>
-            <button class="card__btn" type="button">В&nbsp;корзину</button>
-            <button class="card__favorite">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path
-                  d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z"
-                  fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </button>
-          </article>
-        </li>
+              <button class="card__btn" type="button">В&nbsp;корзину</button>
+              <button class="card__favorite" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z"
+                    fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </article>
+          </li>
 
-        <li class="goods__item">
-          <article class="goods__card card">
-            <a href="/product" class="card__link">
-              <img src="/img/photo.jpg" alt="Кресло с подлокотниками" class="card__img">
-            </a>
-            <h3 class="card__title">
-              <a href="/product" class="card__link">Кресло с подлокотниками</a>
-            </h3>
-            <p class="card__price" type="button">5&nbsp;000&nbsp;₽</p>
-            <button class="card__btn" type="button">В&nbsp;корзину</button>
-            <button class="card__favorite">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path
-                  d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z"
-                  fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </button>
-          </article>
-        </li>
+          <li class="goods__item">
+            <article class="goods__card card">
+              <a href="/product" class="card__link card__link_img">
+                <img src="/img/photo.jpg" alt="Кресло с подлокотниками" class="card__img">
+              </a>
 
-        <li class="goods__item">
-          <article class="goods__card card">
-            <a href="/product" class="card__link">
-              <img src="/img/photo.jpg" alt="Кресло с подлокотниками" class="card__img">
-            </a>
-            <h3 class="card__title">
-              <a href="/product" class="card__link">Кресло с подлокотниками</a>
-            </h3>
-            <p class="card__price">5&nbsp;000&nbsp;₽</p>
-            <button class="card__btn" type="button">В&nbsp;корзину</button>
-            <button class="card__favorite" type="button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path
-                  d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z"
-                  fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </button>
-          </article>
-        </li>
+              <div class="card__info">
+                <h3 class="card__title">
+                  <a href="/product" class="card__link">Кресло с подлокотниками</a>
+                </h3>
+                <p class="card__price">5&nbsp;000&nbsp;₽</p>
+              </div>
 
-      </ul>
+              <button class="card__btn" type="button">В&nbsp;корзину</button>
+              <button class="card__favorite" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z"
+                    fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </article>
+          </li>
 
+          <li class="goods__item">
+            <article class="goods__card card">
+              <a href="/product" class="card__link card__link_img">
+                <img src="/img/photo.jpg" alt="Кресло с подлокотниками" class="card__img">
+              </a>
+
+              <div class="card__info">
+                <h3 class="card__title">
+                  <a href="/product" class="card__link">Кресло с подлокотниками</a>
+                </h3>
+                <p class="card__price">5&nbsp;000&nbsp;₽</p>
+              </div>
+
+              <button class="card__btn" type="button">В&nbsp;корзину</button>
+              <button class="card__favorite" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z"
+                    fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </article>
+          </li>
+
+          <li class="goods__item">
+            <article class="goods__card card">
+              <a href="/product" class="card__link card__link_img">
+                <img src="/img/photo.jpg" alt="Кресло с подлокотниками" class="card__img">
+              </a>
+
+              <div class="card__info">
+                <h3 class="card__title">
+                  <a href="/product" class="card__link">Кресло с подлокотниками</a>
+                </h3>
+                <p class="card__price">5&nbsp;000&nbsp;₽</p>
+              </div>
+
+              <button class="card__btn" type="button">В&nbsp;корзину</button>
+              <button class="card__favorite" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z"
+                    fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </article>
+          </li>
+
+        </ul>
+      </div>
     </section>
 
     <section class="product" hidden>
@@ -353,14 +372,14 @@
       </div>
     </section>
 
-    <section class="cart">
+    <section class="cart" hidden>
       <div class="container cart__container">
         <h2 class="cart__title">Корзина</h2>
 
         <ul class="cart__products">
 
           <li class="cart__product">
-            <img src="/img/photos.jpg" alt="" class="cart__img">
+            <img src="/img/photo.jpg" alt="" class="cart__img">
             <h3 class="cart__title-product">Кресло с подлокотниками</h3>
             <p class="cart__price">10&nbsp;000&nbsp;₽</p>
             <p class="cart__article">арт. 84348945757</p>
@@ -372,7 +391,7 @@
           </li>
 
           <li class="cart__product">
-            <img src="/img/photos.jpg" alt="" class="cart__img">
+            <img src="/img/photo.jpg" alt="" class="cart__img">
             <h3 class="cart__title-product">Кресло с подлокотниками</h3>
             <p class="cart__price">5&nbsp;000&nbsp;₽</p>
             <p class="cart__article">арт. 84348945757</p>
@@ -384,7 +403,7 @@
           </li>
 
           <li class="cart__product">
-            <img src="/img/photos.jpg" alt="" class="cart__img">
+            <img src="/img/photo.jpg" alt="" class="cart__img">
             <h3 class="cart__title-product">Кресло с подлокотниками</h3>
             <p class="cart__price">5&nbsp;000&nbsp;₽</p>
             <p class="cart__article">арт. 84348945757</p>
@@ -407,7 +426,7 @@
 
           <p class="cart__place-delivery">Доставка 0 ₽</p>
 
-          <button class="cart__place-btn" type="submit" form="order"></button>
+          <button class="cart__place-btn" type="submit" form="order">Оформить заказ</button>
         </div>
 
         <form class="cart__form form__order" id="form" action="#" method="POST">
@@ -444,47 +463,47 @@
       </div>
     </section>
 
-    <section class="answer">
-      <div class="container answer__container">
-        <div class="answer__wrap">
+    <section class="order">
+      <div class="container order__container">
+        <div class="order__wrap">
 
-          <div class="answer__top">
-            <h2 class="answer__title">Заказ успешно размещен</h2>
-            <p class="answer__price">20&nbsp;000&nbsp;₽</p>
-            <p class="answer__order-number">№43435</p>
+          <div class="order__top">
+            <h2 class="order__title">Заказ успешно размещен</h2>
+            <p class="order__price">20&nbsp;000&nbsp;₽</p>
+            <p class="order__order-number">№43435</p>
           </div>
 
-          <div class="answer__data">
-            <h3 class="answer__subtitle">Данные доставки</h3>
-            <table class="answer__table">
-              <tr class="answer__row">
-                <td class="answer__field">Получатель</td>
-                <td class="answer__value">Иванов Петр Александрович</td>
+          <div class="order__data">
+            <h3 class="order__subtitle">Данные доставки</h3>
+            <table class="order__table table">
+              <tr class="order__row table__row">
+                <td class="order__field table__field">Получатель</td>
+                <td class="order__value table__value">Иванов Петр Александрович</td>
               </tr>
-              <tr class="answer__row">
-                <td class="answer__field">Телефон</td>
-                <td class="answer__value">+7 (737) 346 23 00</td>
+              <tr class="order__row table__row">
+                <td class="order__field table__field">Телефон</td>
+                <td class="order__value table__value">+7 (737) 346 23 00</td>
               </tr>
-              <tr class="answer__row">
-                <td class="answer__field">E-mail</td>
-                <td class="answer__value">Ivanov84@gmail.com</td>
+              <tr class="order__row table__row">
+                <td class="order__field table__field">E-mail</td>
+                <td class="order__value table__value">Ivanov84@gmail.com</td>
               </tr>
-              <tr class="answer__row">
-                <td class="answer__field">Адрес доставки</td>
-                <td class="answer__value">Москва, ул. Ленина, 21, кв. 33</td>
+              <tr class="order__row table__row">
+                <td class="order__field table__field">Адрес доставки</td>
+                <td class="order__value table__value">Москва, ул. Ленина, 21, кв. 33</td>
               </tr>
-              <tr class="answer__row">
-                <td class="answer__field">Способ оплаты</td>
-                <td class="answer__value">Картой при получении</td>
+              <tr class="order__row table__row">
+                <td class="order__field table__field">Способ оплаты</td>
+                <td class="order__value table__value">Картой при получении</td>
               </tr>
-              <tr class="answer__row">
-                <td class="answer__field">Способ получения</td>
-                <td class="answer__value">Доставка</td>
+              <tr class="order__row table__row">
+                <td class="order__field table__field">Способ получения</td>
+                <td class="order__value table__value">Доставка</td>
               </tr>
             </table>
           </div>
 
-          <a class="answer__link" href="/">На главную</a>
+          <a class="order__link" href="/">На главную</a>
 
         </div>
       </div>

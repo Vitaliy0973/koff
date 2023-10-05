@@ -1,0 +1,95 @@
+.order {
+  padding-top: 32px;
+
+  &__container {
+    border: 1px solid #eeeff2;
+    border-radius: 16px;
+    padding: 24px 16px;
+
+    @media (min-width: 580px) {
+      padding: 60px 0;
+      margin: 0 29px;
+    }
+  }
+
+  &__wrap {
+    @media (min-width: 580px) {
+      max-width: 408px;
+      margin: 0 auto;
+    }
+  }
+
+  &__top {
+    margin-bottom: 20px;
+
+    @media (min-width: 580px) {
+      display: grid;
+      grid-template-areas:
+        "title price"
+        "number number";
+      grid-template-columns: minmax(300px, 1fr) auto;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 8px;
+
+    @media (min-width: 580px) {
+      font-size: 20px;
+      margin: 0;
+    }
+  }
+
+  &__price {
+    font-size: 16px;
+    margin-bottom: 8px;
+
+    @media (min-width: 580px) {
+      font-size: 20px;
+      margin: 0;
+    }
+  }
+
+  &__order-number {
+    max-width: fit-content;
+    background-color: #eeeff2;
+    border-radius: 32px;
+    padding: 4px 8px;
+  }
+
+  &__data {
+    margin-bottom: 24px;
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: #fff;
+    background-color: #780096;
+    outline: none;
+    border-radius: 32px;
+    padding: 12px 24px;
+    transition: background 0.3s ease 0s;
+
+    &:hover,
+    &:focus-visible {
+      background-color: #9200B7;
+    }
+
+    &:active {
+      opacity: 0.2;
+    }
+  }
+}
