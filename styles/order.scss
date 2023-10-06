@@ -10,6 +10,11 @@
       padding: 60px 0;
       margin: 0 29px;
     }
+
+    @media (min-width: 890px) {
+      max-width: 832px;
+      margin: 0 auto;
+    }
   }
 
   &__wrap {
