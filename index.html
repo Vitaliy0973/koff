@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <header class="header">
+  <!-- <header class="header">
     <div class="container header__container">
       <a class="header__link-logo" href="/">
         <img class="header__logo" src="/img/logo.svg" alt="Логотип мебельного маркета Koff">
@@ -64,11 +64,11 @@
         </a>
       </div>
     </div>
-  </header>
+  </header> -->
 
-  <main>
+  <!-- <main> -->
 
-    <div class="catalog" hidden>
+  <!-- <div class="catalog">
       <div class="container catalog__container">
         <ul class="catalog__list">
           <li class="catalog__item">
@@ -103,9 +103,9 @@
           </li>
         </ul>
       </div>
-    </div>
+    </div> -->
 
-    <div class="breadcrumbs" hidden>
+  <!-- <div class="breadcrumbs">
       <div class="container">
         <ul class="breadcrumbs__list">
           <li class="breadcrumbs__item">
@@ -113,7 +113,7 @@
             <span class="breadcrumbs__separator">&gt;</span>
           </li>
           <li class="breadcrumbs__item">
-            <a href="/category?/slag=Кресла" class="breadcrumbs__link">Кресла</a>
+            <a href="/category?slag=Кресла" class="breadcrumbs__link">Кресла</a>
             <span class="breadcrumbs__separator">&gt;</span>
           </li>
           <li class="breadcrumbs__item">
@@ -122,9 +122,9 @@
           </li>
         </ul>
       </div>
-    </div>
+    </div> -->
 
-    <section class="goods" hidden>
+  <!-- <section class="goods">
       <div class="container">
         <h2 class="goods__title">Избранное</h2>
 
@@ -132,13 +132,13 @@
 
           <li class="goods__item">
             <article class="goods__card card">
-              <a href="/product" class="card__link card__link_img">
+              <a href="/product/123" class="card__link card__link_img">
                 <img src="/img/photo.jpg" alt="Кресло с подлокотниками" class="card__img">
               </a>
 
               <div class="card__info">
                 <h3 class="card__title">
-                  <a href="/product" class="card__link">Кресло с подлокотниками</a>
+                  <a href="/product/123" class="card__link">Кресло с подлокотниками</a>
                 </h3>
                 <p class="card__price">5&nbsp;000&nbsp;₽</p>
               </div>
@@ -156,13 +156,13 @@
 
           <li class="goods__item">
             <article class="goods__card card">
-              <a href="/product" class="card__link card__link_img">
+              <a href="/product/234" class="card__link card__link_img">
                 <img src="/img/photo.jpg" alt="Кресло с подлокотниками" class="card__img">
               </a>
 
               <div class="card__info">
                 <h3 class="card__title">
-                  <a href="/product" class="card__link">Кресло с подлокотниками</a>
+                  <a href="/product/234" class="card__link">Кресло с подлокотниками</a>
                 </h3>
                 <p class="card__price">5&nbsp;000&nbsp;₽</p>
               </div>
@@ -180,13 +180,13 @@
 
           <li class="goods__item">
             <article class="goods__card card">
-              <a href="/product" class="card__link card__link_img">
+              <a href="/product/345" class="card__link card__link_img">
                 <img src="/img/photo.jpg" alt="Кресло с подлокотниками" class="card__img">
               </a>
 
               <div class="card__info">
                 <h3 class="card__title">
-                  <a href="/product" class="card__link">Кресло с подлокотниками</a>
+                  <a href="/product/345" class="card__link">Кресло с подлокотниками</a>
                 </h3>
                 <p class="card__price">5&nbsp;000&nbsp;₽</p>
               </div>
@@ -204,13 +204,13 @@
 
           <li class="goods__item">
             <article class="goods__card card">
-              <a href="/product" class="card__link card__link_img">
+              <a href="/product/456" class="card__link card__link_img">
                 <img src="/img/photo.jpg" alt="Кресло с подлокотниками" class="card__img">
               </a>
 
               <div class="card__info">
                 <h3 class="card__title">
-                  <a href="/product" class="card__link">Кресло с подлокотниками</a>
+                  <a href="/product/456" class="card__link">Кресло с подлокотниками</a>
                 </h3>
                 <p class="card__price">5&nbsp;000&nbsp;₽</p>
               </div>
@@ -227,10 +227,41 @@
           </li>
 
         </ul>
-      </div>
-    </section>
 
-    <section class="product" hidden>
+        <div class="pagination">
+          <div class="pagination__bar" style="--width: calc(12 / 31 * 100%);"></div>
+
+          <div class="pagination__arrays">
+
+            <button class="pagination__left">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M2.86395 8.00001L8.52528 2.18201C8.5719 2.13512 8.60874 2.07946 8.6337 2.01824C8.65866 1.95702 8.67122 1.89145 8.67068 1.82534C8.67013 1.75923 8.65647 1.69389 8.6305 1.63309C8.60453 1.57229 8.56676 1.51725 8.51938 1.47114C8.472 1.42504 8.41594 1.38879 8.35445 1.36449C8.29297 1.34019 8.22727 1.32833 8.16117 1.32959C8.09507 1.33085 8.02988 1.3452 7.96936 1.37182C7.90885 1.39844 7.85421 1.4368 7.80862 1.48468L1.80862 7.65134C1.7178 7.74469 1.66699 7.86978 1.66699 8.00001C1.66699 8.13024 1.7178 8.25533 1.80862 8.34868L7.80862 14.5153C7.85421 14.5632 7.90885 14.6016 7.96936 14.6282C8.02988 14.6548 8.09507 14.6692 8.16117 14.6704C8.22727 14.6717 8.29297 14.6598 8.35445 14.6355C8.41594 14.6112 8.472 14.575 8.51938 14.5289C8.56676 14.4828 8.60453 14.4277 8.6305 14.3669C8.65647 14.3061 8.67013 14.2408 8.67068 14.1747C8.67122 14.1086 8.65866 14.043 8.6337 13.9818C8.60874 13.9206 8.5719 13.8649 8.52528 13.818L2.86395 8.00001Z"
+                  fill="#1C1C1C" />
+              </svg>
+            </button>
+
+            <p>
+              <span class="pagination__carent">12</span>
+              из
+              <span class="pagination__total">31</span>
+            </p>
+
+            <button class="pagination__right">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M13.136 8.00001L7.47472 2.18201C7.4281 2.13512 7.39126 2.07946 7.3663 2.01824C7.34134 1.95702 7.32878 1.89145 7.32932 1.82534C7.32987 1.75923 7.34353 1.69389 7.3695 1.63309C7.39547 1.57229 7.43324 1.51725 7.48062 1.47114C7.528 1.42504 7.58406 1.38879 7.64555 1.36449C7.70703 1.34019 7.77273 1.32833 7.83883 1.32959C7.90493 1.33085 7.97012 1.3452 8.03064 1.37182C8.09115 1.39844 8.14579 1.4368 8.19138 1.48468L14.1914 7.65134C14.2822 7.74469 14.333 7.86978 14.333 8.00001C14.333 8.13024 14.2822 8.25533 14.1914 8.34868L8.19138 14.5153C8.14579 14.5632 8.09115 14.6016 8.03064 14.6282C7.97012 14.6548 7.90493 14.6692 7.83883 14.6704C7.77273 14.6717 7.70703 14.6598 7.64555 14.6355C7.58406 14.6112 7.528 14.575 7.48062 14.5289C7.43324 14.4828 7.39547 14.4277 7.3695 14.3669C7.34353 14.3061 7.32987 14.2408 7.32932 14.1747C7.32878 14.1086 7.34134 14.043 7.3663 13.9818C7.39126 13.9206 7.4281 13.8649 7.47472 13.818L13.136 8.00001Z"
+                  fill="#1C1C1C" />
+              </svg>
+            </button>
+
+          </div>
+        </div>
+
+      </div>
+    </section> -->
+
+  <!-- <section class="product">
       <div class="container product__container">
         <h2 class="product__title">Кресло с подлокотниками</h2>
 
@@ -370,9 +401,9 @@
         </div>
 
       </div>
-    </section>
+    </section> -->
 
-    <section class="cart" hidden>
+  <!-- <section class="cart">
       <div class="container cart__container">
         <h2 class="cart__title">Корзина</h2>
 
@@ -429,8 +460,8 @@
           <button class="cart__place-btn" type="submit" form="order">Оформить заказ</button>
         </div>
 
-        <form class="cart__form form__order" id="form" action="#" method="POST">
-          <h3 class="cart__subtitle">Данные для доставки</h3>
+        <form class="cart__form form-order" id="form" action="#" method="POST">
+          <h3 class="cart__subtitle cart__subtitle_form-order">Данные для доставки</h3>
 
           <fieldset class="form-order__fieldset form-order__fieldset_input">
             <input class="form-order__input" type="text" name="name" placeholder="Фамилия Имя Отчество">
@@ -461,9 +492,9 @@
           </fieldset>
         </form>
       </div>
-    </section>
+    </section> -->
 
-    <section class="order">
+  <!-- <section class="order">
       <div class="container order__container">
         <div class="order__wrap">
 
@@ -507,11 +538,11 @@
 
         </div>
       </div>
-    </section>
+    </section> -->
 
-  </main>
+  <!-- </main> -->
 
-  <footer class="footer">
+  <!-- <footer class="footer">
     <div class="container footer__container">
       <a href="/" class="footer__link-logo">
         <img class="footer__logo" src="/img/logo.svg" alt="Логотип мебельного маркета Koff">
@@ -561,18 +592,18 @@
       <ul class="footer__developer-list">
         <li class="footer__developer-item">
           Designer:
-          <a href="https://t.me/Mrshmallowww" class="footer__developer-link">Anastasia Ilina</a>
+          <a href="https://t.me/Mrshmallowww" class="footer__developer-link" target="_blank">Anastasia Ilina</a>
         </li>
         <li class="footer__developer-item">
           Developer:
-          <a href="#" class="footer__developer-link">Vitalii Smirnov</a>
+          <a href="#" class="footer__developer-link" target="_blank">Vitalii Smirnov</a>
         </li>
       </ul>
 
       <p class="footer__copyright">© Koff, 2023</p>
 
     </div>
-  </footer>
+  </footer> -->
 </body>
 
 </html>
