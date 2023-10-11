@@ -1,6 +1,6 @@
 import axios from "axios";
 import { API_URL } from "../const";
-import { LocalStorageService } from "./storageService";
+import { LocalStorageService } from "./LocalStorageService";
 
 export class ApiService {
   #apiUrl = API_URL;
