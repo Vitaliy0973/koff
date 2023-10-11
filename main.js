@@ -7,6 +7,10 @@ import { Order } from './modules/Order/Order';
 import './style.scss';
 
 import { data } from './order-data.js';
+import { ProductList } from './modules/ProductList/ProductList';
+import { ApiService } from './servises/ApiService';
+import { Catalog } from './modules/Catalog/Catalog';
+import { NoPage } from './modules/NoPage/NoPage';
 
 const productSlider = () => {
   Promise.all([
@@ -37,23 +41,57 @@ const productSlider = () => {
 };
 
 const init = () => {
-  productSlider();
+  const api = new ApiService();
+  const router = new Navigo('/', { linksSelector: 'a[href^="/"]' });
 
   new Header().mount();
   new Main().mount();
   new Footer().mount();
 
-  const router = new Navigo('/', { linksSelector: 'a[href^="/"]' });
+  api.getProductCategories().then(data => {
+    new Catalog().mount(new Main().element, data);
+    router.updatePageLinks();
+  });
+
+  productSlider();
 
   router
-    .on('/', () => {
+    .on('/', async () => {
+      const product = await api.getProducts();
       console.log('На главной.')
+      new ProductList().mount(new Main().element, product);
+      router.updatePageLinks();
+    }, {
+      leave(done) {
+        new ProductList().unmount();
+        done();
+      },
+      already() {
+        console.log('already: ');
+      },
     })
-    .on('/category', () => {
+    .on('/category', async ({ params: { slug } }) => {
       console.log('Category')
+      const product = await api.getProducts();
+      new ProductList().mount(new Main().element, product, slug);
+      router.updatePageLinks();
+    }, {
+      leave(done) {
+        new ProductList().unmount();
+        done();
+      },
     })
-    .on('/favorite', () => {
+    .on('/favorite', async () => {
       console.log('favorite')
+      const product = await api.getProducts();
+      new ProductList().mount(new Main().element, product, 'Избранное');
+      router.updatePageLinks();
+
+    }, {
+      leave(done) {
+        new ProductList().unmount();
+        done();
+      },
     })
     .on('/search', () => {
       console.log('search')
@@ -66,9 +104,23 @@ const init = () => {
     })
     .on('/order', () => {
       new Order().mount(new Main().element, data);
+    }, {
+      leave(done) {
+        new Order().unmount();
+        done();
+      }
     })
     .notFound(() => {
-      document.body.innerHTML = '<h1 style="margin-top: 45vh; text-align: center;">Страница не найдена</h1>';
+      new NoPage().mount(new Main().element);
+
+      setTimeout(() => {
+        router.navigate('/');
+      }, 5000);
+    }, {
+      leave(done) {
+        new NoPage().unmount();
+        done();
+      }
     });
   router.resolve();
 }

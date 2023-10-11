@@ -114,7 +114,7 @@ export class Order {
   orderLink() {
     const link = document.createElement('a');
     link.classList.add('order__link');
-    link.href = location.origin;
+    link.href = '/';
     link.textContent = 'На главную';
 
     return link;

@@ -12,7 +12,7 @@ export class Main {
     return Main.instance;
   }
 
-  mount(elem) {
+  mount() {
     if (this.isMounted) {
       return;
     }
