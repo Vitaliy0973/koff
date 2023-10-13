@@ -99,6 +99,29 @@
     align-items: center;
     gap: 4px;
 
+    svg {
+      fill: #fff;
+      transition: all 0.3s ease 0s;
+    }
+
+    &:hover,
+    &:active {
+      color: #780096;
+
+      svg {
+        fill: #780096;
+      }
+    }
+
+    &:focus-visible {
+      color: #780096;
+      outline-color: #780096;
+
+      svg {
+        fill: #780096;
+      }
+    }
+
     @media (min-width: 580px) {
       flex-direction: row;
     }
