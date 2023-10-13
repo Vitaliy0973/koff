@@ -11,6 +11,7 @@ import { ProductList } from './modules/ProductList/ProductList';
 import { ApiService } from './servises/ApiService';
 import { Catalog } from './modules/Catalog/Catalog';
 import { NoPage } from './modules/NoPage/NoPage';
+import { FavoriteService } from './servises/StorageService';
 
 const productSlider = () => {
   Promise.all([
@@ -82,9 +83,12 @@ const init = () => {
       },
     })
     .on('/favorite', async () => {
-      console.log('favorite')
-      const product = await api.getProducts();
-      new ProductList().mount(new Main().element, product, 'Избранное');
+      console.log('favorite');
+      const params = {
+        list: new FavoriteService().get(),
+      };
+      const product = await api.getProducts(params);
+      new ProductList().mount(new Main().element, product.data, 'Избранное');
       router.updatePageLinks();
 
     }, {
