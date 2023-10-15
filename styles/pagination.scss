@@ -27,6 +27,12 @@
     gap: 8px;
   }
 
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
   &__left {}
 
   &__carent {}

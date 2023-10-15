@@ -12,6 +12,7 @@ import { ApiService } from './servises/ApiService';
 import { Catalog } from './modules/Catalog/Catalog';
 import { NoPage } from './modules/NoPage/NoPage';
 import { FavoriteService } from './servises/StorageService';
+import { Pagination } from './features/Pagination/Pagination';
 
 const productSlider = () => {
   Promise.all([
@@ -58,23 +59,28 @@ const init = () => {
 
   router
     .on('/', async () => {
-      const product = await api.getProducts();
+      const products = await api.getProducts();
       console.log('На главной.')
-      new ProductList().mount(new Main().element, product);
+      new ProductList().mount(new Main().element, products);
       router.updatePageLinks();
     }, {
       leave(done) {
         new ProductList().unmount();
         done();
       },
-      already() {
-        console.log('already: ');
-      },
+      already(match) {
+        match.route.handler(match);
+      }
     })
-    .on('/category', async ({ params: { slug } }) => {
-      console.log('Category')
-      const product = await api.getProducts();
-      new ProductList().mount(new Main().element, product, slug);
+    .on('/category', async ({ params: { slug, page } }) => {
+      const { data: products, pagination } = await api.getProducts({
+        category: slug,
+        page: page || 1,
+      });
+      new ProductList().mount(new Main().element, products, slug);
+      new Pagination()
+        .mount(new ProductList().containerElement)
+        .update(pagination);
       router.updatePageLinks();
     }, {
       leave(done) {
@@ -88,7 +94,8 @@ const init = () => {
         list: new FavoriteService().get(),
       };
       const product = await api.getProducts(params);
-      new ProductList().mount(new Main().element, product.data, 'Избранное');
+      new ProductList().mount(new Main().element, product.data, 'Избранное',
+        'Вы ничего не добавили в избранное.');
       router.updatePageLinks();
 
     }, {
@@ -96,6 +103,9 @@ const init = () => {
         new ProductList().unmount();
         done();
       },
+      already(match) {
+        match.route.handler(match);
+      }
     })
     .on('/search', () => {
       console.log('search')
